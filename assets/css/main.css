@@ -978,10 +978,6 @@ footer .bottom .social-handles hr {
   margin-bottom: 50px;
 }
 
-.mb-64 {
-  margin-bottom: 16rem;
-}
-
 .mb-\[13\.5px\] {
   margin-bottom: 13.5px;
 }
@@ -1116,10 +1112,6 @@ footer .bottom .social-handles hr {
 
 .w-full {
   width: 100%;
-}
-
-.w-2\/4 {
-  width: 50%;
 }
 
 .min-w-\[225px\] {
@@ -1841,10 +1833,6 @@ footer .bottom .social-handles hr {
 
   .lg\:rounded-\[5\.5px\] {
     border-radius: 5.5px;
-  }
-
-  .lg\:p-\[35px\] {
-    padding: 35px;
   }
 
   .lg\:p-\[50px\] {
