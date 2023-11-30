@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  h1, .h1 {
+    @apply text-[32px] lg:text-[54px];
+  }
+
+  h2, .h2{
+    @apply text-[24px] lg:text-[44px];
+  }
+
+  h3, .h3{
+    @apply text-[16px] lg:text-[24px];
+  }
+
+  h4, .h4{
+    @apply text-[14px] lg:text-[18px];
+  }
+
+  h5, .h5{
+    @apply text-[12px] lg:text-[16px];
+  }
+
+  h6, .h6{
+    @apply text-[10px] lg:text-[14px];
+  }
+
+  p, .para, body{
+    @apply text-[#677580] text-[15px] lg:text-[18px]
+  }
+
+  .ui-container{
+    @apply max-w-[1100px] mx-auto
+  }
+
+  .ui-padding {
+    @apply px-[20px] lg:px-[30px]
+  }
+
+  .ui-margin {
+    @apply mx-[20px] lg:mx-[30px]
+  }
+
+  .ui-section-heading{
+    @apply lg:text-[20px] text-[18px] text-[#31343D] h-fit font-bold
+  }
+
+  .ui-section-shadow{
+    @apply shadow-[2px_5px_35.5px_0px_rgba(0,0,0,0.05)]
+  }
+
+  .ui-section-radius{
+    @apply rounded-[13px] overflow-hidden
+  }
+
+  .ui-button{
+    @apply flex gap-[5px] md:gap-[6px] rounded-[5px] overflow-hidden px-[10px] py-[7px] min-w-[75px] md:min-w-[80px] justify-center md:px-[14px] text-[12px] cursor-pointer
+  }
+
+  hr.hr{
+    @apply bg-gradient-to-r from-[#f1f1f7] via-[#969696] to-[#f2f2f8] border-none min-h-[1px]
+  }
+
+  hr.vr{
+    @apply bg-gradient-to-b from-[#f1f1f7] via-[#969696] to-[#f2f2f8] border-none w-[1px] min-h-[10px]
+  }
+
+  /* Main */
+  .main > section{
+    @apply ui-section-shadow ui-section-radius bg-white
+  }
+
+  /* Section App Download */
+  section.app-download .platform{
+    @apply relative max-md:h-[75px] md:p-[21px] p-[5px] flex flex-col text-left justify-center md:rounded-[5.5px] rounded-[4px] grow text-[#667580] w-[84px] md:w-[260px] bg-white
+  }
+
+  section.app-download .platform.selected{
+    @apply text-white bg-[#55A6F0]
+  }
+
+  section.app-download .platform .for{
+    @apply md:text-[12px] text-[9px] font-semibold
+  }
+
+  section.app-download .platform .name{
+    @apply md:text-[16px] text-[11px] md:mt-[2px] md:mb-[25px] font-bold text-[#31343D]
+  }
+
+  section.app-download .platform.selected .name{
+    @apply text-white
+  }
+
+  section.app-download .platform .desc{
+    @apply md:text-[13px] max-md:hidden font-medium
+  }
+
+  section.app-download .platform .icon{
+    @apply absolute top-0 right-0 m-[5px] md:m-[21px] w-[10.5px] md:w-[26.5px] rounded-full bg-[#4BA9FF] flex items-center justify-center overflow-hidden aspect-square
+  }
+
+  section.app-download .platform.selected .icon{
+    @apply bg-white
+  }
+
+  section.app-download .platform .icon svg{
+    @apply max-md:w-[5px]
+  }
+
+  section.app-download .platform .icon svg path {
+    @apply stroke-white md:pr-[4px] lg:pl-[7px] pl-[1px] pr-[2px]
+  }
+
+  section.app-download .platform.selected .icon svg path {
+    @apply stroke-[#55A6F0]
+  }
+
+
+  /* Footer  */
+  footer .bottom .footer-nav ul{
+    @apply flex flex-col gap-[8px] lg:gap-[9px] font-medium
+  }
+
+  footer .bottom .footer-nav ul p{
+    @apply text-[#7a7c84] font-semibold text-[16px] lg:text-[18px] lg:mb-[3px]
+  }
+
+  footer .bottom .footer-nav ul.location li a{
+    @apply flex gap-[11px] lg:gap-[14px]
+  }
+
+  footer .bottom .footer-nav ul.location li img{
+    @apply w-[12.5px] lg:w-[14px] h-fit
+  }
+
+
+footer .bottom .social-handles .handle a{
+  @apply flex items-center gap-[11px] lg:gap-[33px]
+}
+
+footer .bottom .social-handles img{
+  @apply w-[14px] lg:w-[16px] aspect-square
+}
+
+footer .bottom .social-handles hr{
+  @apply w-[1px] h-[22px] lg:h-[44px]
+}
+
+
+}

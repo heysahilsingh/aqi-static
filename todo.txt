@@ -1,0 +1,4 @@
+// Index.html
+-- Editor's pick section's carousel
+
+// Al carousels
