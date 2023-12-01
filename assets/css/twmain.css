@@ -31,6 +31,12 @@
     @apply text-[#677580] text-[15px] lg:text-[18px]
   }
 
+  input {
+    appearance: none;
+    background-color: transparent;
+    outline: none;
+  }
+
   .ui-container{
     @apply max-w-[1100px] mx-auto
   }
@@ -59,17 +65,174 @@
     @apply flex gap-[5px] md:gap-[6px] rounded-[5px] overflow-hidden px-[10px] py-[7px] min-w-[75px] md:min-w-[80px] justify-center md:px-[14px] text-[12px] cursor-pointer
   }
 
+  .ui-button-link{
+    @apply flex justify-center items-center gap-[3.5px] text-blue text-[13px] relative
+  }
+
+  .ui-button-link:after{
+    content: "";
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="22" height="4" viewBox="0 0 22 4" fill="none"><path d="M0.644531 2.73642H19.2527L16.6562 0.789062" stroke="%234BA9FF" stroke-width="1.29824" stroke-linecap="round" /></svg>');
+    @apply w-[19px] h-[5px] bg-no-repeat bg-center bg-contain
+  }
+
   hr.hr{
-    @apply bg-gradient-to-r from-[#f1f1f7] via-[#969696] to-[#f2f2f8] border-none min-h-[1px]
+    @apply bg-gradient-to-r from-[#f1f1f7] via-[#969696] to-[#f2f2f8] border-none min-h-[1px] opacity-50
   }
 
   hr.vr{
-    @apply bg-gradient-to-b from-[#f1f1f7] via-[#969696] to-[#f2f2f8] border-none w-[1px] min-h-[10px]
+    @apply bg-gradient-to-b from-[#f1f1f7] via-[#969696] to-[#f2f2f8] border-none w-[1px] min-h-[10px] opacity-50
   }
+
+  /* ui-toggle */
+  .ui-toggle .ui-toggle-content{
+    display: none;
+  }
+
+  .ui-toggle.active .ui-toggle-content{
+    display: flex !important;
+  }
+
+  /* Header */
+  header .desk nav li{
+    @apply py-[20px] text-[15px] font-medium border-b-[3px] border-transparent cursor-pointer hover:text-zinc-400 transition
+  }
+
+  header .desk nav li.active{
+    @apply !border-blue
+  }
+
+  header .mob-menu-toggler{
+    @apply flex gap-[4px] flex-col items-end
+  }
+
+  header .mob-menu-toggler span{
+    @apply h-[3px] block opacity-100 transition bg-[#31343D] rounded-full absolute
+  }
+
+  header .mob-menu-toggler span:nth-child(1){
+    @apply top-0
+  }
+
+  header .mob-menu-toggler span:nth-child(2){
+    @apply top-[calc(50%-1.5px)] opacity-100
+  }
+
+  header .mob-menu-toggler span:nth-child(3){
+    @apply bottom-0
+  }
+
+  header .mob.off-canvas-active .mob-menu-toggler span:nth-child(1){
+    @apply top-[43%] rotate-[135deg]
+  }
+
+  header .mob.off-canvas-active .mob-menu-toggler span:nth-child(2){
+    @apply opacity-0 left-[-10px]
+  }
+
+  header .mob.off-canvas-active .mob-menu-toggler span:nth-child(3){
+    @apply top-[43%] rotate-[-135deg] w-full
+  }
+
+  header .top .lang-selector.active .wrapper img{
+    @apply -rotate-180
+  }
+
+  header .top .lang-selector .wrapper img{
+    @apply transition
+  }
+  header .top .lang-selector .lang-option{
+    @apply flex items-center gap-[12px]
+  }
+
+  header .top .lang-selector .lang-option .lang-name{
+    @apply text-[#31343D] text-[15px] font-semibold
+  }
+
+  header .top .lang-selector .lang-option .lang-img{
+    @apply lg:w-[30px] w-[20px] aspect-square
+  }
+
+  header .top .off-canvas-active .off-canvas-menu{
+    @apply !translate-x-0
+  }
+  
+  header .bottom li{
+    @apply flex items-center font-semibold
+  }
+
+  header .bottom li .location{
+    @apply text-[#4C4F57] text-[12px]
+  }
+
+  header .bottom li .aqi-level{
+    @apply text-[16px] font-bold ml-[7px] mr-[3px]
+  }
+
+  header .bottom li .metric{
+    @apply text-[#4C4F57] text-[7px] pt-[5px]
+  }
+
+  header .bottom hr.vr{
+    @apply h-[25px]
+  }
+
+  header .off-canvas-menu .mob-nav .ui-toggle-handler{
+    @apply flex items-center gap-[10px]
+  }
+
+  header .off-canvas-menu .mob-nav .ui-toggle-content{
+    @apply flex-col gap-[15px] px-[15px] pt-[15px]
+  }
+
+  header .off-canvas-menu .mob-nav .ui-toggle-handler i{
+    @apply transition
+  }
+
+  header .off-canvas-menu .mob-nav .ui-toggle.active .ui-toggle-handler i{
+    @apply -rotate-180
+  }
+
 
   /* Main */
   .main > section{
     @apply ui-section-shadow ui-section-radius bg-white
+  }
+
+  /* AQI Scale */
+  section.aqi-scale .scale{
+    @apply grid items-center grid-cols-[auto_135px_minmax(23px,_40px)_1fr]  md:grid-cols-[auto_135px_auto_1fr_minmax(23px,_40px)] px-[20px] py-[14px] rounded-[6px] md:px-[15px] md:py-[13px] md:rounded-[9px] bg-[#F7F7FC] gap-x-[10px] md:gap-x-[15px] lg:gap-x-[20px] max-md:gap-y-[20px]
+  }
+
+  section.aqi-scale .scale .color{
+    @apply aspect-square w-[17px] rounded-[3px]
+  }
+
+  section.aqi-scale .scale .name{
+    @apply text-[#31343D] font-semibold text-[13px]
+  }
+
+  section.aqi-scale .scale .name span {
+    @apply text-[#667580] text-[12px] font-medium
+  }
+
+  section.aqi-scale .scale hr{
+    @apply max-md:hidden h-[25px]
+  }
+
+  section.aqi-scale .scale .desc{
+    @apply text-[11px] text-[#677580] max-md:col-start-1 max-md:col-end-5 max-md:row-start-2 max-md:row-end-3
+  }
+
+  section.aqi-scale .scale .aqi-model{
+    @apply mt-[-20px] md:mt-[-30px] w-[22px]
+  }
+
+  section.aqi-scale .scale .toggler{
+    @apply md:hidden
+  }
+
+  section.aqi-scale .scale .toggler svg{
+    @apply md:hidden float-right
   }
 
   /* Section App Download */

@@ -1,4 +1,5 @@
 // Index.html
 -- Editor's pick section's carousel
+-- AQI Scale Explaination's mobile Toggle functionality
 
 // Al carousels
