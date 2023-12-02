@@ -80,11 +80,11 @@
   }
 
   hr.hr{
-    @apply bg-gradient-to-r from-[#f1f1f7] via-[#969696] to-[#f2f2f8] border-none min-h-[1px] opacity-50
+    @apply bg-gradient-to-r from-[#f1f1f7] via-[#969696] to-[#f2f2f8] border-none min-h-[1px] w-full opacity-50
   }
 
   hr.vr{
-    @apply bg-gradient-to-b from-[#f1f1f7] via-[#969696] to-[#f2f2f8] border-none w-[1px] min-h-[10px] opacity-50
+    @apply bg-gradient-to-b from-[#f1f1f7] via-[#969696] to-[#f2f2f8] border-none w-[1px] min-h-[10px] min-w-[1px] opacity-50
   }
 
   /* ui-toggle */
@@ -202,6 +202,34 @@
     @apply ui-section-shadow ui-section-radius bg-white
   }
 
+
+  /* Health Advice */
+  div.health-advice .advices .advice{
+    @apply relative flex gap-[12.5px] items-center justify-center md:px-[15px] md:py-[15px] p-[13px] rounded-[9px] border border-transparent
+  }
+
+  div.health-advice .advices .advice.important{
+    @apply border-[rgba(75,169,255,0.73)]
+  }
+
+  div.health-advice .advices .advice.very-important p span:nth-child(1):after{
+    content: "";
+    @apply absolute top-[-2px] right-[-5px] w-[5px] aspect-square rounded-full bg-[#E75835]
+  }
+
+  div.health-advice .advices .advice p{
+    @apply flex flex-col gap-[2px]
+  }
+
+  div.health-advice .advices .advice p span:nth-child(1){
+    @apply text-[#31343D] font-semibold text-[12px] relative
+  }
+
+  div.health-advice .advices .advice p span:nth-child(2){
+    @apply text-[11px] font-medium
+  }
+
+
   /* AQI Scale */
   section.aqi-scale .scale{
     @apply grid items-center grid-cols-[auto_135px_minmax(23px,_40px)_1fr]  md:grid-cols-[auto_135px_auto_1fr_minmax(23px,_40px)] px-[20px] py-[14px] rounded-[6px] md:px-[15px] md:py-[13px] md:rounded-[9px] bg-[#F7F7FC] gap-x-[10px] md:gap-x-[15px] lg:gap-x-[20px] max-md:gap-y-[20px]
@@ -238,6 +266,54 @@
   section.aqi-scale .scale .toggler svg{
     @apply md:hidden float-right
   }
+
+  /* World's Most Polluted Cities */
+
+  section.worlds-most-polluted-cities .content :is(.header, .data){
+    @apply grid items-center  gap-[23px] md:gap-x-[40px] grid-cols-[20px_130px_40px_minmax(80px,auto)_minmax(140px,auto)_minmax(40px,auto)] md:grid-cols-[20px_200px_40px_minmax(80px,auto)_minmax(140px,auto)_minmax(40px,auto)] py-[10px] px-[20px] rounded-[6px] font-semibold text-[12px] min-w-[580px]
+  }
+
+  section.worlds-most-polluted-cities .data{
+    @apply odd:bg-[#F7F7FC]
+  }
+
+  section.worlds-most-polluted-cities .data > *{
+    @apply h-fit
+  }
+
+  section.worlds-most-polluted-cities .data .rank{
+    @apply text-[11px] text-left text-[#31343D] font-light
+  }
+
+  section.worlds-most-polluted-cities .data .location{
+    @apply flex gap-[6px] md:gap-[12px] items-center
+  }
+  
+  section.worlds-most-polluted-cities .data .location p{
+    @apply text-[12px] font-semibold overflow-hidden whitespace-nowrap text-ellipsis
+  }
+
+  section.worlds-most-polluted-cities .data .aqi-level{
+    @apply flex items-center justify-center
+  }
+
+  section.worlds-most-polluted-cities .data .aqi-status {
+    @apply flex items-center justify-center
+  }
+
+  
+  section.worlds-most-polluted-cities .data .aqi-fluctuation{
+    @apply flex items-center justify-center gap-[5px] min-w-max
+  }
+  
+  section.worlds-most-polluted-cities .data .aqi-fluctuation span{
+    @apply text-[15px]
+  }
+
+  section.worlds-most-polluted-cities .data .user-follows{
+    @apply flex items-center justify-center cursor-pointer
+  }
+
 
   /* Section App Download */
   section.app-download .platform{

@@ -718,6 +718,7 @@ input {
 
 hr.hr {
   min-height: 1px;
+  width: 100%;
   border-style: none;
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
   --tw-gradient-from: #f1f1f7 var(--tw-gradient-from-position);
@@ -732,6 +733,7 @@ hr.hr {
 hr.vr {
   min-height: 10px;
   width: 1px;
+  min-width: 1px;
   border-style: none;
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
   --tw-gradient-from: #f1f1f7 var(--tw-gradient-from-position);
@@ -944,6 +946,64 @@ header .off-canvas-menu .mob-nav .ui-toggle.active .ui-toggle-handler i {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+/* Health Advice */
+
+div.health-advice .advices .advice {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12.5px;
+  border-radius: 9px;
+  border-width: 1px;
+  border-color: transparent;
+  padding: 13px;
+}
+
+@media (min-width: 768px) {
+  div.health-advice .advices .advice {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+div.health-advice .advices .advice.important {
+  border-color: rgba(75,169,255,0.73);
+}
+
+div.health-advice .advices .advice.very-important p span:nth-child(1):after{
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -5px;
+  aspect-ratio: 1 / 1;
+  width: 5px;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(231 88 53 / var(--tw-bg-opacity))
+}
+
+div.health-advice .advices .advice p {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+div.health-advice .advices .advice p span:nth-child(1) {
+  position: relative;
+  font-size: 12px;
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(49 52 61 / var(--tw-text-opacity));
+}
+
+div.health-advice .advices .advice p span:nth-child(2) {
+  font-size: 11px;
+  font-weight: 500;
+}
+
 /* AQI Scale */
 
 section.aqi-scale .scale {
@@ -1055,6 +1115,101 @@ section.aqi-scale .scale .toggler svg {
   section.aqi-scale .scale .toggler svg {
     display: none;
   }
+}
+
+/* World's Most Polluted Cities */
+
+section.worlds-most-polluted-cities .content :is(.header, .data) {
+  display: grid;
+  min-width: 580px;
+  grid-template-columns: 20px 130px 40px minmax(80px,auto) minmax(140px,auto) minmax(40px,auto);
+  align-items: center;
+  gap: 23px;
+  border-radius: 6px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  section.worlds-most-polluted-cities .content :is(.header, .data) {
+    grid-template-columns: 20px 200px 40px minmax(80px,auto) minmax(140px,auto) minmax(40px,auto);
+    -moz-column-gap: 40px;
+         column-gap: 40px;
+  }
+}
+
+section.worlds-most-polluted-cities .data:nth-child(odd) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(247 247 252 / var(--tw-bg-opacity));
+}
+
+section.worlds-most-polluted-cities .data > * {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+section.worlds-most-polluted-cities .data .rank {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 300;
+  --tw-text-opacity: 1;
+  color: rgb(49 52 61 / var(--tw-text-opacity));
+}
+
+section.worlds-most-polluted-cities .data .location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (min-width: 768px) {
+  section.worlds-most-polluted-cities .data .location {
+    gap: 12px;
+  }
+}
+
+section.worlds-most-polluted-cities .data .location p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+section.worlds-most-polluted-cities .data .aqi-level {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section.worlds-most-polluted-cities .data .aqi-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section.worlds-most-polluted-cities .data .aqi-fluctuation {
+  display: flex;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+section.worlds-most-polluted-cities .data .aqi-fluctuation span {
+  font-size: 15px;
+}
+
+section.worlds-most-polluted-cities .data .user-follows {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Section App Download */
@@ -1309,8 +1464,16 @@ footer .bottom .social-handles hr {
   right: 0px;
 }
 
+.right-\[30px\] {
+  right: 30px;
+}
+
 .top-0 {
   top: 0px;
+}
+
+.top-\[8px\] {
+  top: 8px;
 }
 
 .z-10 {
@@ -1319,6 +1482,14 @@ footer .bottom .social-handles hr {
 
 .z-\[10\] {
   z-index: 10;
+}
+
+.z-\[1\] {
+  z-index: 1;
+}
+
+.z-\[2\] {
+  z-index: 2;
 }
 
 .z-\[5\] {
@@ -1342,6 +1513,11 @@ footer .bottom .social-handles hr {
   margin-right: auto;
 }
 
+.my-\[28px\] {
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+
 .my-\[30px\] {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -1354,6 +1530,10 @@ footer .bottom .social-handles hr {
 
 .mb-\[13\.5px\] {
   margin-bottom: 13.5px;
+}
+
+.mb-\[15px\] {
+  margin-bottom: 15px;
 }
 
 .mb-\[20px\] {
@@ -1384,12 +1564,20 @@ footer .bottom .social-handles hr {
   margin-right: 10px;
 }
 
+.mt-\[-20px\] {
+  margin-top: -20px;
+}
+
 .mt-\[10px\] {
   margin-top: 10px;
 }
 
 .mt-\[18px\] {
   margin-top: 18px;
+}
+
+.mt-\[20px\] {
+  margin-top: 20px;
 }
 
 .mt-\[22px\] {
@@ -1400,12 +1588,36 @@ footer .bottom .social-handles hr {
   margin-top: 25px;
 }
 
+.mt-\[40px\] {
+  margin-top: 40px;
+}
+
 .mt-\[78px\] {
   margin-top: 78px;
 }
 
 .mt-\[7px\] {
   margin-top: 7px;
+}
+
+.mt-\[-15px\] {
+  margin-top: -15px;
+}
+
+.mt-\[\] {
+  margin-top: ;
+}
+
+.mt-\[-\] {
+  margin-top: -;
+}
+
+.mt-\[-10\] {
+  margin-top: -10;
+}
+
+.mt-\[-20\] {
+  margin-top: -20;
 }
 
 .block {
@@ -1476,6 +1688,11 @@ footer .bottom .social-handles hr {
   height: 100vh;
 }
 
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .\!w-\[1\.5px\] {
   width: 1.5px !important;
 }
@@ -1486,6 +1703,10 @@ footer .bottom .social-handles hr {
 
 .w-\[176px\] {
   width: 176px;
+}
+
+.w-\[18px\] {
+  width: 18px;
 }
 
 .w-\[1px\] {
@@ -1528,6 +1749,10 @@ footer .bottom .social-handles hr {
   width: 68%;
 }
 
+.w-\[70px\] {
+  width: 70px;
+}
+
 .w-\[80\%\] {
   width: 80%;
 }
@@ -1536,12 +1761,17 @@ footer .bottom .social-handles hr {
   width: 88.63px;
 }
 
-.w-full {
-  width: 100%;
-}
-
 .w-\[8px\] {
   width: 8px;
+}
+
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .min-w-\[225px\] {
@@ -1689,6 +1919,10 @@ footer .bottom .social-handles hr {
   gap: 21px;
 }
 
+.gap-\[22px\] {
+  gap: 22px;
+}
+
 .gap-\[24px\] {
   gap: 24px;
 }
@@ -1709,6 +1943,14 @@ footer .bottom .social-handles hr {
   gap: 45px;
 }
 
+.gap-\[5px\] {
+  gap: 5px;
+}
+
+.gap-\[6px\] {
+  gap: 6px;
+}
+
 .gap-\[70px\] {
   gap: 70px;
 }
@@ -1719,18 +1961,6 @@ footer .bottom .social-handles hr {
 
 .gap-\[8px\] {
   gap: 8px;
-}
-
-.gap-\[8pxpx\] {
-  gap: 8pxpx;
-}
-
-.gap-\[2px\] {
-  gap: 2px;
-}
-
-.gap-\[5px\] {
-  gap: 5px;
 }
 
 .gap-x-12 {
@@ -1746,6 +1976,10 @@ footer .bottom .social-handles hr {
 .gap-x-\[30px\] {
   -moz-column-gap: 30px;
        column-gap: 30px;
+}
+
+.gap-y-\[10px\] {
+  row-gap: 10px;
 }
 
 .gap-y-\[24px\] {
@@ -1770,6 +2004,10 @@ footer .bottom .social-handles hr {
 
 .overflow-x-scroll {
   overflow-x: scroll;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 
 .rounded-\[11px\] {
@@ -1878,6 +2116,11 @@ footer .bottom .social-handles hr {
   background-color: rgb(201 32 51 / var(--tw-bg-opacity));
 }
 
+.bg-slate-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1888,12 +2131,29 @@ footer .bottom .social-handles hr {
   background-color: rgb(240 229 49 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#F7F7FC\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(247 247 252 / var(--tw-bg-opacity));
+}
+
 .p-\[11px\] {
   padding: 11px;
 }
 
 .p-\[13px\] {
   padding: 13px;
+}
+
+.p-\[22px\] {
+  padding: 22px;
+}
+
+.p-\[20px\] {
+  padding: 20px;
+}
+
+.p-\[10px\] {
+  padding: 10px;
 }
 
 .px-\[10px\] {
@@ -1934,6 +2194,11 @@ footer .bottom .social-handles hr {
 .px-\[26px\] {
   padding-left: 26px;
   padding-right: 26px;
+}
+
+.px-\[30px\] {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .px-\[50px\] {
@@ -1991,6 +2256,30 @@ footer .bottom .social-handles hr {
   padding-bottom: 70px;
 }
 
+.px-\[40px\] {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.py-\[20px\] {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.py-\[15px\] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.py-\[8px\] {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.pb-\[25px\] {
+  padding-bottom: 25px;
+}
+
 .pb-\[40px\] {
   padding-bottom: 40px;
 }
@@ -2007,8 +2296,48 @@ footer .bottom .social-handles hr {
   padding-top: 24px;
 }
 
+.pt-\[25px\] {
+  padding-top: 25px;
+}
+
+.pt-\[40px\] {
+  padding-top: 40px;
+}
+
 .pt-\[60px\] {
   padding-top: 60px;
+}
+
+.pb-\[20px\] {
+  padding-bottom: 20px;
+}
+
+.pb-\[15px\] {
+  padding-bottom: 15px;
+}
+
+.pt-\[35px\] {
+  padding-top: 35px;
+}
+
+.pb-\[8px\] {
+  padding-bottom: 8px;
+}
+
+.pt-\[28px\] {
+  padding-top: 28px;
+}
+
+.pb-\[0px\] {
+  padding-bottom: 0px;
+}
+
+.pt-\[20px\] {
+  padding-top: 20px;
+}
+
+.pb-\[5px\] {
+  padding-bottom: 5px;
 }
 
 .text-left {
@@ -2017,6 +2346,10 @@ footer .bottom .social-handles hr {
 
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .font-nunito {
@@ -2039,12 +2372,20 @@ footer .bottom .social-handles hr {
   font-size: 14px;
 }
 
+.text-\[15px\] {
+  font-size: 15px;
+}
+
 .text-\[16px\] {
   font-size: 16px;
 }
 
 .text-\[18px\] {
   font-size: 18px;
+}
+
+.text-\[35px\] {
+  font-size: 35px;
 }
 
 .font-bold {
@@ -2067,6 +2408,10 @@ footer .bottom .social-handles hr {
   font-weight: 600;
 }
 
+.leading-\[120\%\] {
+  line-height: 120%;
+}
+
 .text-\[\#212529\] {
   --tw-text-opacity: 1;
   color: rgb(33 37 41 / var(--tw-text-opacity));
@@ -2087,9 +2432,24 @@ footer .bottom .social-handles hr {
   color: rgb(83 97 108 / var(--tw-text-opacity));
 }
 
+.text-\[\#667580\] {
+  --tw-text-opacity: 1;
+  color: rgb(102 117 128 / var(--tw-text-opacity));
+}
+
 .text-\[\#677580\] {
   --tw-text-opacity: 1;
   color: rgb(103 117 128 / var(--tw-text-opacity));
+}
+
+.text-\[\#EC3839\] {
+  --tw-text-opacity: 1;
+  color: rgb(236 56 57 / var(--tw-text-opacity));
+}
+
+.text-blue {
+  --tw-text-opacity: 1;
+  color: rgb(75 169 255 / var(--tw-text-opacity));
 }
 
 .text-green-50 {
@@ -2115,6 +2475,15 @@ footer .bottom .social-handles hr {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\#C92033\] {
+  --tw-text-opacity: 1;
+  color: rgb(201 32 51 / var(--tw-text-opacity));
+}
+
+.underline {
+  text-decoration-line: underline;
 }
 
 .shadow-2xl {
@@ -2166,10 +2535,6 @@ footer .bottom .social-handles hr {
     margin-bottom: -10px;
   }
 
-  .max-md\:mb-\[-8px\] {
-    margin-bottom: -8px;
-  }
-
   .max-md\:hidden {
     display: none;
   }
@@ -2178,9 +2543,21 @@ footer .bottom .social-handles hr {
     width: 100%;
   }
 
+  .max-md\:flex-col {
+    flex-direction: column;
+  }
+
+  .max-md\:overflow-x-scroll {
+    overflow-x: scroll;
+  }
+
   .max-md\:px-\[10px\] {
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .max-md\:pb-\[20px\] {
+    padding-bottom: 20px;
   }
 }
 
@@ -2191,6 +2568,20 @@ footer .bottom .social-handles hr {
 }
 
 @media (min-width: 768px) {
+  .md\:top-\[15px\] {
+    top: 15px;
+  }
+
+  .md\:mx-\[35px\] {
+    margin-left: 35px;
+    margin-right: 35px;
+  }
+
+  .md\:my-\[47px\] {
+    margin-top: 47px;
+    margin-bottom: 47px;
+  }
+
   .md\:mb-\[30px\] {
     margin-bottom: 30px;
   }
@@ -2215,8 +2606,20 @@ footer .bottom .social-handles hr {
     margin-top: 27px;
   }
 
+  .md\:mt-\[30px\] {
+    margin-top: 30px;
+  }
+
   .md\:mt-\[90px\] {
     margin-top: 90px;
+  }
+
+  .md\:mt-\[\] {
+    margin-top: ;
+  }
+
+  .md\:mt-\[-\] {
+    margin-top: -;
   }
 
   .md\:hidden {
@@ -2239,8 +2642,16 @@ footer .bottom .social-handles hr {
     width: 203px;
   }
 
+  .md\:w-\[25px\] {
+    width: 25px;
+  }
+
   .md\:w-\[26px\] {
     width: 26px;
+  }
+
+  .md\:w-\[310px\] {
+    width: 310px;
   }
 
   .md\:w-\[360px\] {
@@ -2249,6 +2660,11 @@ footer .bottom .social-handles hr {
 
   .md\:min-w-\[300px\] {
     min-width: 300px;
+  }
+
+  .md\:max-w-fit {
+    max-width: -moz-fit-content;
+    max-width: fit-content;
   }
 
   .md\:grid-cols-3 {
@@ -2275,6 +2691,10 @@ footer .bottom .social-handles hr {
     justify-content: space-between;
   }
 
+  .md\:gap-\[10px\] {
+    gap: 10px;
+  }
+
   .md\:gap-\[11px\] {
     gap: 11px;
   }
@@ -2289,6 +2709,10 @@ footer .bottom .social-handles hr {
 
   .md\:gap-\[24px\] {
     gap: 24px;
+  }
+
+  .md\:gap-\[25px\] {
+    gap: 25px;
   }
 
   .md\:gap-\[40px\] {
@@ -2307,8 +2731,49 @@ footer .bottom .social-handles hr {
     overflow-x: hidden;
   }
 
+  .md\:p-\[20px\] {
+    padding: 20px;
+  }
+
+  .md\:p-\[17px\] {
+    padding: 17px;
+  }
+
+  .md\:px-\[40px\] {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .md\:pb-\[20px\] {
+    padding-bottom: 20px;
+  }
+
+  .md\:pt-\[\] {
+    padding-top: ;
+  }
+
+  .md\:pt-\[50\] {
+    padding-top: 50;
+  }
+
+  .md\:text-\[13px\] {
+    font-size: 13px;
+  }
+
+  .md\:text-\[14px\] {
+    font-size: 14px;
+  }
+
+  .md\:text-\[15px\] {
+    font-size: 15px;
+  }
+
   .md\:text-\[16px\] {
     font-size: 16px;
+  }
+
+  .md\:text-\[20px\] {
+    font-size: 20px;
   }
 
   .md\:text-\[28px\] {
@@ -2319,12 +2784,8 @@ footer .bottom .social-handles hr {
     font-size: 36px;
   }
 
-  .md\:text-\[14px\] {
-    font-size: 14px;
-  }
-
-  .md\:text-\[13px\] {
-    font-size: 13px;
+  .md\:text-\[22px\] {
+    font-size: 22px;
   }
 
   @media not all and (min-width: 1024px) {
