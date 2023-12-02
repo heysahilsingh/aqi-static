@@ -49,6 +49,10 @@
     @apply mx-[20px] lg:mx-[30px]
   }
 
+  .ui-section-padding{
+    @apply md:p-[35px] px-[15px] py-[30px]  
+  }
+
   .ui-section-heading{
     @apply lg:text-[20px] text-[18px] text-[#31343D] h-fit font-bold
   }
