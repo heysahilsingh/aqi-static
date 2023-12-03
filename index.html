@@ -412,12 +412,184 @@
     <div
       class="main ui-padding my-[50px] lg:my-[83px] flex gap-[45px] lg-gap-[35px] flex-col ui-container">
 
+      <!-- Main Dashboard  -->
       <div class="main-dashboard flex flex-col item-center justify-center">
         <div
-          class="col1 bg-white ui-section-shadow ui-section-radius ui-section-padding z-[2]"></div>
+          class="col1 bg-white ui-section-shadow ui-section-radius ui-section-padding z-[2] relative !overflow-visible md:!rounded-tl-none">
+          <!-- Navigation  -->
+          <div
+            class="navigation flex items-center bg-transparent md:w-fit rounded-t-[6px] md:absolute md:top-0 md:left-0 md:-translate-y-full">
+            <a href="#"
+              class="aqi min-w-[110px] md:min-w-[130px] text-[13px] md:text-[15px] font-semibold flex items-center justify-center gap-[6px] px-[20px] py-[10px] md:px-[24px] md:py-[11px] border-t-2 border-blue text-blue rounded-t-[6px] bg-white">
+              <i class="icon">
+                <img src="./assets/media/main-dashboard-aqi-data.svg" alt>
+              </i>
+              <span>AQI</span>
+            </a>
+            <a href="#"
+              class="weather min-w-[110px] md:min-w-[130px] text-[13px] md:text-[15px] font-semibold flex items-center justify-center gap-[6px] px-[20px] py-[10px] md:px-[24px] md:py-[11px] border-t-2 border-transparent rounded-t-[6px] bg-[#F1F1F1]">
+              <i class="icon">
+                <img src="./assets/media/main-dashboard-weather-data.png" alt>
+              </i>
+              <span>Weather</span>
+            </a>
+            <button
+              onclick="askUserLocation()"
+              class="md:hidden grow ml-auto flex items-center justify-center max-w-fit h-fit border border-blue rounded-[5px] p-[3px]">
+              <img src="./assets/media/icons/location.svg" alt>
+            </button>
+          </div>
+
+          <!-- Header  -->
+          <div
+            class="header flex gap-[15px] md:gap-[20px] items-start md:items-center mt-[25px] mb-[45px] md:mt-0 md:mb-[70px]">
+            <div class="location grow flex flex-col md:gap-[3px]">
+              <div
+                class="max-md:hidden mb-[5px] text-[16px] font-medium flex items-center gap-[6px]">
+                <i class="icon">
+                  <img src="./assets/media/icons/wind.svg" alt>
+                </i>
+                <span>Air Quality in</span>
+              </div>
+              <a href
+                class="flex items-center gap-[6px] md:gap-[8px] text-[#31343D] font-bold text-[18px] md:text-[20px]">
+                <!-- On desktop  -->
+                <span class="max-md:hidden">Paschim Vihar, New delhi, India
+                </span>
+                <!-- On mob  -->
+                <span class="md:hidden">Paschim Vihar</span>
+                <i class="w-[16px] md:w-[18px] aspect-square">
+                  <svg class="max-w-full" xmlns="http://www.w3.org/2000/svg"
+                    width="19" height="19"
+                    viewBox="0 0 19 19" fill="none">
+                    <ellipse cx="9.16804" cy="9.62743" rx="9.16804" ry="8.97704"
+                      fill="#31343D" />
+                    <path
+                      d="M12.3877 6.63916C12.3877 6.36084 12.1573 6.13521 11.873 6.13521L7.24103 6.13521C6.95679 6.13521 6.72636 6.36084 6.72636 6.63916C6.72636 6.91748 6.95679 7.14311 7.24103 7.14311L11.3584 7.14311L11.3584 11.1747C11.3584 11.453 11.5888 11.6786 11.873 11.6786C12.1573 11.6786 12.3877 11.453 12.3877 11.1747L12.3877 6.63916ZM5.74665 11.9252C5.54566 12.122 5.54566 12.4411 5.74665 12.6379C5.94764 12.8347 6.27351 12.8347 6.4745 12.6379L5.74665 11.9252ZM11.5091 6.28282L5.74665 11.9252L6.4745 12.6379L12.237 6.9955L11.5091 6.28282Z"
+                      fill="white" />
+                  </svg>
+                </i>
+              </a>
+              <span class="md:hidden text-[13px] font-semibold">New delhi, India</span>
+              <span class="text-[10px] md:text-[13px]">Nearest monitor is 0.8 km
+                far</span>
+            </div>
+            <div
+              onclick="askUserLocation()"
+              class="locate-me-button max-md:hidden mr-[15px] ui-button !py-[10px] items-center text-blue border border-blue leading-none">
+              <img class="w-[15px]" src="./assets/media/icons/location.svg" alt>
+              <span>Locate me</span>
+            </div>
+            <div
+              class="folllows cursor-pointer flex items-center gap-[5px] text-[#31343D] text-[10px] md:text-[12px] font-medium">
+              <!-- If user follows  -->
+              <img src="./assets/media/icons/do-follow.svg"
+                class="w-[20px] md:w-[25px] aspect-square">
+              <!-- If user don't follows  -->
+              <!-- <img src="./assets/media/icons/dont-follow.svg"
+                class="w-[20px] md:w-[25px] aspect-square"> -->
+              <span>26.5K</span>
+            </div>
+            <div class="share cursor-pointer" id="main-dashboard-share-btn">
+              <img src="./assets/media/icons/share.svg"
+                class="w-[20px] md:w-[25px] aspect-square">
+            </div>
+          </div>
+
+          <!-- Data  -->
+          <div
+            class="data grid lg:grid-cols-[1fr_minmax(auto,320px)] sm:grid-cols-[1fr_minmax(auto,270px)] md:gap-x-[30px] sm:gap-x-[15px]">
+            <!-- AQI  -->
+            <div
+              class="aqi bg-[#F7F7FC] lg:p-[20px] px-[20px] py-[13px] rounded-[8px] grid grid-cols-[auto,1fr,auto] gap-[15px] lg:grid-cols-[auto,auto,1fr,170px,auto] lg:gap-[15px] lg:items-centder lg:justify-between">
+              <div
+                class="meter ml-[-10px] md:mt-[-50px] mt-[-35px] aspect-square w-[100px] md:w-[133px] bg-slate-300 rounded-full"></div>
+              <div
+                class="aqi-condition max-lg:text-center self-center flex flex-col max-lg:items-center md:gap-[2px]">
+                <div
+                  class="flex gap-[5px] items-center font-medium text-[11px] lg:text-[13px]">
+                  <div class="bg-orange-50 aspect-square rounded-full w-[8px]"></div>
+                  Live AQI
+                </div>
+                <div
+                  class="condition text-green-50 font-bold text-[20px] md:text-[24px]">Good</div>
+                <p
+                  class="text-[#859199] font-normal text-[10px] md:text-[12px] max-lg:text-center">Last
+                  Updated: <span
+                    class="font-semibold">2 hr ago</span></p>
+              </div>
+              <div
+                class="divider flex justify-center max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-2 max-lg:row-end-3">
+                <hr class="vr max-lg:hidden h-full self-center">
+                <hr
+                  class="hr lg:hidden">
+              </div>
+              <p
+                class="message self-center text-[12px] md:text-[14px] lg:text-right text-center max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-3 max-lg:row-end-4">You
+                can go outside without fear and enjoy the
+                day</p>
+              <img src="./assets/media/aqi-model-good.png" alt
+                class="aqi-model md:w-[53px] w-[40px] md:mt-[-45px] mt-[-27px]">
+            </div>
+
+            <!-- AQI Scale  -->
+            <div
+              class="aqi-scale mt-5 bg-slate-400 sm:col-start-1 sm:col-end-2 sm:row-start-2 sm:row-end-3">Aqi
+              Scale</div>
+
+            <!-- Weather  -->
+            <div
+              class="weather max-sm:h-fit">
+              <div
+                class="sm:hidden pt-[30px] pb-[15px] header flex items-center justify-between">
+                <h2 class="text-[16px] sm:text-[20px]">
+                  <span class="font-bold text-[#31343D]">Weather</span>
+                  <span class="font-medium">in</span>
+                  <span class="font-semibold">Paschim Vihar</span>
+                </h2>
+              </div>
+              <div
+                class="content h-full w-full flex items-center justify-center rounded-[10px] border border-[rgba(103,117,128,0.15)] overflow-hidden md:py-[18px] md:pr-[25px] py-[22px] pr-[25px] pl-[67px] relative">
+                <i
+                  class="weather-image absolute top-0 left-0 w-[67px] h-[74px]">
+                  <img src="./assets/media/weather/weather-mostly-sunny.svg"
+                    alt="Weather Mostly Sunny"
+                    class="w-full h-full object-cover">
+                </i>
+                <div
+                  class="wrapper grid grid-cols-[auto,auto,auto] items-center justify-between w-full h-fit gap-[20px] md:gap-[14px]">
+                  <div class="weather-condition">
+                    <p class="text-[#31343D] leading-none">
+                      <span class="text-[20px] md:text-[30px] font-bold">35</span>
+                      <span class="text-[20px] md:text-[25px]">°</span>
+                      <span class="text-[15px] md:text-[20px]">c</span>
+                    </p>
+                    <span class="text-[13px]">Mostly Sunny</span>
+                  </div>
+                  <hr class="vr h-full">
+                  <span class="humidity">
+                    <img src="./assets/media/icons/humidity.svg" alt="humidity">
+                    <span>70%</span>
+                  </span>
+                  <span class="wind-speed">
+                    <img src="./assets/media/icons/wind-speed.svg"
+                      alt="Wind speed">
+                    <span>11km/hr</span>
+                  </span>
+                  <hr class="vr h-full">
+                  <span class="uv-index">
+                    <img src="./assets/media/icons/uv.svg" alt="UV rays">
+                    <span>43</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div
           class="col2 md:mx-[35px] mt-[-20px] flex flex-col bg-white ui-section-shadow ui-section-radius ui-section-padding">
-          <div class="wrapper w-full pt-[20px]">
+          <div
+            class="wrapper w-full pt-[20px] flex flex-col gap-[30px] md:gap-[50px]">
             <!-- Location Rank  -->
             <div
               class="location-rank text-center p-[10px] md:p-[17px] text-[15px] md:text-[20px] ui-section-radius bg-[#F7F7FC] text-[#C92033] font-semibold">“<span
@@ -426,15 +598,256 @@
               India”</div>
 
             <!-- Major Pollutants  -->
-            <div class="major-pollutants"></div>
+            <div class="major-pollutants flex flex-col gap-[24px] md:gap-[30px]">
+              <div class="header flex items-center justify-between">
+                <h2 class="text-[16px] md:text-[20px]">
+                  <span class="font-bold text-[#31343D]">Major Pollutants</span>
+                  <span class="font-medium">in</span>
+                  <span class="font-semibold">New Delhi</span>
+                </h2>
+                <a href="#"
+                  class="check-exposure flex items-end justify-center max-md:hidden">
+                  <i class="w-[18px] md:w-[25px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15"
+                      height="24" viewBox="0 0 15 24" fill="none">
+                      <path
+                        d="M11.25 24C13.3177 24 15 22.3181 15 20.25V3.75C15 1.68234 13.3177 0 11.25 0H3.75C1.68234 0 0 1.68234 0 3.75V20.25C0 22.3186 1.68234 24 3.75 24H11.25ZM13.5 20.25C13.5 21.4912 12.4913 22.5 11.25 22.5H3.75C2.50875 22.5 1.5 21.4912 1.5 20.25V19.5H13.5V20.25ZM1.5 18V3.75C1.5 2.50875 2.50875 1.5 3.75 1.5H11.25C12.4913 1.5 13.5 2.50875 13.5 3.75V18H1.5Z"
+                        fill="#4BA9FF" />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-blue underline font-medium text-[14px]">Get App</span>
+                </a>
+              </div>
+              <div
+                class="pollutants grid grid-cols-2 md:grid-cols-3 gap-x-[7px] gap-y-[13px] md:gap-[25px] md:justify-between">
+                <div class="pollutant important">
+                  <div class="top border-red-50">
+                    <i class="pollutant-icon">
+                      <img src="./assets/media/icons/pollutant-pm25.svg" alt>
+                    </i>
+                    <div class="pollutant-data">
+                      <span class="name">PM2.5</span>
+                      <span class="value">344<span class="unit">μg/m3</span></span>
+                    </div>
+                    <a href="#" class="link"></a>
+                  </div>
+                  <div class="bottom">
+                    <div class="avg">Avg</div>
+                    <div class="avg-time">
+                      <span class="time">1hr</span>
+                      <span class="value">20</span>
+                    </div>
+                    <div class="avg-time">
+                      <span class="time">8hr</span>
+                      <span class="value">18</span>
+                    </div>
+                    <div class="avg-time">
+                      <span class="time">12hr</span>
+                      <span class="value">17</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pollutant">
+                  <div class="top border-orange-50">
+                    <i class="pollutant-icon">
+                      <img src="./assets/media/icons/pollutant-pm10.svg" alt>
+                    </i>
+                    <div class="pollutant-data">
+                      <span class="name">PM10</span>
+                      <span class="value">344<span class="unit">μg/m3</span></span>
+                    </div>
+                    <a href="#" class="link"></a>
+                  </div>
+                  <div class="bottom">
+                    <div class="avg">Avg</div>
+                    <div class="avg-time">
+                      <span class="time">1hr</span>
+                      <span class="value">20</span>
+                    </div>
+                    <div class="avg-time">
+                      <span class="time">8hr</span>
+                      <span class="value">18</span>
+                    </div>
+                    <div class="avg-time">
+                      <span class="time">12hr</span>
+                      <span class="value">17</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pollutant">
+                  <div class="top border-green-50">
+                    <i class="pollutant-icon">
+                      <img src="./assets/media/icons/pollutant-o3.svg" alt>
+                    </i>
+                    <div class="pollutant-data">
+                      <span class="name">O3</span>
+                      <span class="value">198<span class="unit">ppb</span></span>
+                    </div>
+                    <a href="#" class="link"></a>
+                  </div>
+                  <div class="bottom">
+                    <div class="avg">Avg</div>
+                    <div class="avg-time">
+                      <span class="time">1hr</span>
+                      <span class="value">20</span>
+                    </div>
+                    <div class="avg-time">
+                      <span class="time">8hr</span>
+                      <span class="value">18</span>
+                    </div>
+                    <div class="avg-time">
+                      <span class="time">12hr</span>
+                      <span class="value">17</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pollutant">
+                  <div class="top border-yellow-500">
+                    <i class="pollutant-icon">
+                      <img src="./assets/media/icons/pollutant-co.svg" alt>
+                    </i>
+                    <div class="pollutant-data">
+                      <span class="name">CO</span>
+                      <span class="value">213<span class="unit">ppm</span></span>
+                    </div>
+                    <a href="#" class="link"></a>
+                  </div>
+                  <div class="bottom">
+                    <div class="avg">Avg</div>
+                    <div class="avg-time">
+                      <span class="time">1hr</span>
+                      <span class="value">20</span>
+                    </div>
+                    <div class="avg-time">
+                      <span class="time">8hr</span>
+                      <span class="value">18</span>
+                    </div>
+                    <div class="avg-time">
+                      <span class="time">12hr</span>
+                      <span class="value">17</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pollutant">
+                  <div class="top border-pink-50">
+                    <i class="pollutant-icon">
+                      <img src="./assets/media/icons/pollutant-no2.svg" alt>
+                    </i>
+                    <div class="pollutant-data">
+                      <span class="name">NO2</span>
+                      <span class="value">344<span class="unit">ppm</span></span>
+                    </div>
+                    <a href="#" class="link"></a>
+                  </div>
+                  <div class="bottom">
+                    <div class="avg">Avg</div>
+                    <div class="avg-time">
+                      <span class="time">1hr</span>
+                      <span class="value">20</span>
+                    </div>
+                    <div class="avg-time">
+                      <span class="time">8hr</span>
+                      <span class="value">18</span>
+                    </div>
+                    <div class="avg-time">
+                      <span class="time">12hr</span>
+                      <span class="value">17</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pollutant">
+                  <div class="top border-red-50">
+                    <i class="pollutant-icon">
+                      <img src="./assets/media/icons/pollutant-so2.svg" alt>
+                    </i>
+                    <div class="pollutant-data">
+                      <span class="name">SO2</span>
+                      <span class="value">344<span class="unit">ppb</span></span>
+                    </div>
+                    <a href="#" class="link"></a>
+                  </div>
+                  <div class="bottom">
+                    <div class="avg">Avg</div>
+                    <div class="avg-time">
+                      <span class="time">1hr</span>
+                      <span class="value">20</span>
+                    </div>
+                    <div class="avg-time">
+                      <span class="time">8hr</span>
+                      <span class="value">18</span>
+                    </div>
+                    <div class="avg-time">
+                      <span class="time">12hr</span>
+                      <span class="value">17</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Extra Info  -->
+            <div
+              class="extra-info flex flex-col gap-[15px] md:gap-[20px] mt-[10px]">
+              <div class="header flex items-center justify-between">
+                <h2 class="text-[16px] md:text-[20px]">
+                  <span class="font-bold text-[#31343D]">Lorem Ipsum</span>
+                  <span class="font-medium">in</span>
+                  <span class="font-semibold">New Delhi</span>
+                </h2>
+              </div>
+              <div
+                class="content flex flex-col md:flex-row md:item-center md:justify-between gap-[20px] md:gap-[40px] overflow-hidden px-[15px] py-[33px] md:p-[20px] rounded-[18px] border border-[#DFDFE9] relative">
+                <!-- Link  -->
+                <a href="#" class="absolute top-0 right-0 w-[45px] md:w-[52px]"><img
+                    src="./assets/media/icons/open-link.svg" alt></a>
+                <!-- Rank  -->
+                <div class="flex gap-[15px] md:items-center grow">
+                  <div
+                    class="bg-red-200 text-white flex flex-col justify-center gap-[2px] md:gap-[5px] h-full aspect-square min-w-fit items-center rounded-[11px] py-[6px] px-[10px] md:p-[12px]">
+                    <span class="text-[12px] font-medium">Rank</span>
+                    <!-- FOR DEV: Rank will be dynamic  -->
+                    <p
+                      class="font-bold text-[30px] md:text-[22px] leading-none flex gap-[2px] text-white">67<span
+                        class="text-[11px] font-semibold">th</span></p>
+                  </div>
+                  <div class="flex flex-col grow text-[14px] md:text-[16px]">
+                    <p
+                      class="text-[#31343D] font-bold">New
+                      Delhi</p>
+                    <span>Currently, New Delhi ranks 1st as the most polluted
+                      city globally.</span>
+                  </div>
+                </div>
+                <hr class="hr md:hidden">
+                <hr class="vr h-[70px] max-md:hidden">
+                <!-- WHO Standard  -->
+                <div
+                  class="flex gap-[15px] md:items-center grow md:mr-[40px]">
+                  <!-- FOR DEV: Dynamic  -->
+                  <div
+                    class="flex flex-col gap-[10px] justify-between items-center px-[10px] py-[6px] leading-none rounded-[11px] aspect-[63/60] h-fit border-[1.5px] border-orange-900">
+                    <span
+                      class="text-[25px] font-extrabold w-full text-left text-orange-900 bg-white ml-[-25px] mt-[-10px] pt-[10px] pl-[12px]">2x</span>
+                    <span class="text-[14.5px] font-bold">Above</span>
+                  </div>
+                  <div class="flex flex-col grow text-[14px] md:text-[16px]">
+                    <span>The ultra-high definition color screen has
+                      high-precision sensors .</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Health Advice  -->
       <div class="health-advice flex flex-col">
+        <!-- Advice  -->
         <div
           class="col1 z-[2] bg-white ui-section-radius ui-section-shadow flex max-md:flex-col">
+          <!-- Smoking  -->
           <div
             class="smoking md:w-[310px] flex flex-col gap-[20px] md:gap-[25px] ui-section-radius ui-section-shadow relative px-[30px] py-[25px]">
             <i
@@ -449,6 +862,7 @@
                 class="text-[#EC3839] font-bold">20</span>
               cigarettes as per the current AQI/PM levels.</p>
             <hr class="hr">
+            <!-- Check Exposure  -->
             <a href="#"
               class="check-exposure flex gap-[10px] items-end justify-center">
               <i class="w-[18px] md:w-[25px]"><img
@@ -458,6 +872,7 @@
                 Your Exposure</span>
             </a>
           </div>
+          <!-- Advices   -->
           <div
             class="advice-wrapper grow relative flex flex-col gap-[5px] md:gap-[10px] ui-section-padding">
             <a href="#" class="absolute top-0 right-0 max-md:hidden w-[70px]"><img
@@ -471,7 +886,7 @@
               air pollution around New delhi
               ?</p>
             <div
-              class="advices grid md:grid-cols-4 grid-cols-2 gap-y-[10px] md:mt-[30px] mt-[10px]">
+              class="advices grid lg:grid-cols-4 grid-cols-2 gap-y-[10px] md:mt-[30px] mt-[10px]">
               <div class="advice very-important">
                 <img src="./assets/media/health-advice-use-purifier.svg" alt>
                 <p class>
@@ -503,6 +918,7 @@
             </div>
           </div>
         </div>
+        <!-- Get a Mask  -->
         <div
           class="col2 z-[1] get-mask md:mx-[35px] flex bg-white p-[22px] pt-[40px] mt-[-20px] md:pb-[20px] md:px-[40px] ui-section-radius ui-section-shadow">
           <div
@@ -516,7 +932,8 @@
             </a>
           </div>
         </div>
-        <div
+        <!-- Check Health Condition  -->
+        <button
           class="col3 flex items-center justify-center max-md:hidden">
           <div
             class="wrapper flex gap-[10px] items-center justify-center w-fit bg-blue text-white pt-[25px] mt-[-20px] pb-[5px] px-[20px] ui-section-radius ui-section-shadow">
@@ -529,7 +946,7 @@
                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
-        </div>
+        </button>
       </div>
 
       <!-- Real-time AQI  -->
@@ -563,7 +980,7 @@
           class="pt-[25px] pb-[25px] mt-[40px] mb-[30px] bg-slate-400">DATA</div>
         <p
           class="font-normal text-right text-[12px] md:text-[14px]">Last
-          Updated:<span
+          Updated: <span
             class="font-semibold">2 hr ago</span></p>
       </section>
 
@@ -601,7 +1018,7 @@
               <div title="Nitrogen Dioxide" class="ui-button">No2</div>
             </div>
             <ul class="scales flex flex-col gap-[13px] md:gap-[16px] text-left">
-              <li class="scale">
+              <li class="scale ui-toggle">
                 <div class="color bg-green-50"></div>
                 <p class="name">Good <span>(0 - 50)</span></p>
                 <hr class="vr h-[26px] max-md:hidden" />
@@ -613,7 +1030,7 @@
                   src="./assets/media/aqi-model-good.png"
                   alt="AQI Status Good Image"
                   class="aqi-model" />
-                <i class="toggler">
+                <i class="toggler ui-toggle-handler">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"
@@ -629,7 +1046,7 @@
                   </svg>
                 </i>
               </li>
-              <li class="scale">
+              <li class="scale ui-toggle">
                 <div class="color bg-yellow-50"></div>
                 <p class="name">Moderate <span>(51 - 100)</span></p>
                 <hr class="vr h-[26px] max-md:hidden" />
@@ -641,7 +1058,7 @@
                   src="./assets/media/aqi-model-moderate.png"
                   alt="AQI Status Moderate Image"
                   class="aqi-model" />
-                <i class="toggler">
+                <i class="toggler ui-toggle-handler">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"
@@ -657,7 +1074,7 @@
                   </svg>
                 </i>
               </li>
-              <li class="scale">
+              <li class="scale ui-toggle">
                 <div class="color bg-orange-50"></div>
                 <p class="name">Poor <span>(101 - 200)</span></p>
                 <hr class="vr h-[26px] max-md:hidden" />
@@ -669,7 +1086,7 @@
                   src="./assets/media/aqi-model-poor.png"
                   alt="AQI Status Poor Image"
                   class="aqi-model min-w-[27px]" />
-                <i class="toggler">
+                <i class="toggler ui-toggle-handler">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"
@@ -685,7 +1102,7 @@
                   </svg>
                 </i>
               </li>
-              <li class="scale">
+              <li class="scale ui-toggle">
                 <div class="color bg-pink-50"></div>
                 <p class="name">Unhealthy <span>(201 - 300)</span></p>
                 <hr class="vr h-[26px] max-md:hidden" />
@@ -697,7 +1114,7 @@
                   src="./assets/media/aqi-model-unhealthy.png"
                   alt="AQI Status Unhealthy Image"
                   class="aqi-model" />
-                <i class="toggler">
+                <i class="toggler ui-toggle-handler">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"
@@ -713,7 +1130,7 @@
                   </svg>
                 </i>
               </li>
-              <li class="scale">
+              <li class="scale ui-toggle">
                 <div class="color bg-purple-50"></div>
                 <p class="name">Severe <span>(301 - 400)</span></p>
                 <hr class="vr h-[26px] max-md:hidden" />
@@ -725,7 +1142,7 @@
                   src="./assets/media/aqi-model-Severe.png"
                   alt="AQI Status Severe Image"
                   class="aqi-model min-w-[25px]" />
-                <i class="toggler">
+                <i class="toggler ui-toggle-handler">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"
@@ -741,7 +1158,7 @@
                   </svg>
                 </i>
               </li>
-              <li class="scale">
+              <li class="scale ui-toggle">
                 <div class="color bg-red-50"></div>
                 <p class="name">Hazardous <span>(400+)</span></p>
                 <hr class="vr h-[26px] max-md:hidden" />
@@ -753,7 +1170,7 @@
                   src="./assets/media/aqi-model-Hazardous.png"
                   alt="AQI Status Hazardous Image"
                   class="aqi-model min-w-[38px]" />
-                <i class="toggler">
+                <i class="toggler ui-toggle-handler">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"
@@ -830,7 +1247,7 @@
             </div>
             <p
               class="font-normal text-right text-[12px] md:text-[14px]">Last
-              Updated:<span
+              Updated: <span
                 class="font-semibold">2 hr ago</span></p>
           </div>
         </div>
@@ -978,11 +1395,6 @@
         <a href="#" class="ui-button-link">View more</a>
       </section>
     </div>
-
-    <!-- World Most Polluted Cities  -->
-    <section class="world-most-polluted-cities py-20">
-      TODO: World Most Polluted Cities
-    </section>
 
     <!-- App Download  -->
     <section class="app-download bg-white">

@@ -3,7 +3,7 @@ document.querySelector("header .mob-menu-toggler").addEventListener("click", () 
     document.querySelector("header .mob").classList.toggle("off-canvas-active")
 })
 
-// UI TOGGLE ELEMENT
+// UI Togggle Component
 const uiToggles = document.querySelectorAll(".ui-toggle");
 
 uiToggles.forEach(selector => {
@@ -21,6 +21,34 @@ document.addEventListener("click", (event) => {
         }
     });
 });
+
+
+// Main Dashboard Share Function
+document.getElementById('main-dashboard-share-btn').addEventListener('click', function() {
+    if (navigator.share) {
+        navigator.share({
+            title: document.title,
+            url: window.location.href
+        })
+    } else {
+        alert('Your browser does not supporting share web content directly.\n\nPlease copy the link and share.');
+    }
+});
+
+
+// Ask for user location
+const askUserLocation = async () => {
+    navigator.geolocation.getCurrentPosition(
+        (location) => {
+            console.log(location);
+            alert("Location received")
+        },
+
+        () => {
+            alert("Location services is disabled.");
+        }
+    )
+}
 
 
 // Update Footer Credit year 

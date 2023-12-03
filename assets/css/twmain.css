@@ -202,6 +202,78 @@
     @apply ui-section-shadow ui-section-radius bg-white
   }
 
+/* Main Dashboard */
+/* main Dashboard: AQI */
+.main-dashboard .weather .content .wrapper > span{
+  @apply flex items-center gap-[10px] font-semibold text-[13px] md:text-[15px] text-[#31343D]
+}
+
+/* Main Dashboard: Major Pollutants */
+.main-dashboard .major-pollutants .pollutant{
+  @apply rounded-[9px] relative overflow-hidden border border-transparent hover:border-[#A3A3C8] flex flex-col bg-[#F7F7FC] md:max-w-[260px] min-w-fit
+}
+
+.main-dashboard .major-pollutants .pollutant.important{
+  @apply border-[#A3A3C8] overflow-visible
+}
+
+.main-dashboard .major-pollutants .pollutant.important .top{
+  @apply rounded-t-[9px]
+}
+
+.main-dashboard .major-pollutants .pollutant.important .bottom{
+  @apply rounded-b-[9px]
+}
+
+.main-dashboard .major-pollutants .pollutant.important:after{
+  content: "!";
+  @apply cursor-pointer absolute top-[-5px] right-[-5px] aspect-square w-[16px] md:w-[20px] bg-[#F97C7C] rounded-full text-white leading-[0] flex items-center justify-center font-bold
+}
+
+.main-dashboard .major-pollutants .pollutant .top{
+  @apply grow flex md:items-center gap-[10px] md:gap-[15px] px-[11px] py-[13px] md:px-[20px] md:py-[15px] border-l-[4px]
+}
+
+.main-dashboard .major-pollutants .pollutant .top .pollutant-data{
+  @apply grow flex gap-[5px] flex-col md:flex-row md:justify-between leading-none
+}
+
+.main-dashboard .major-pollutants .pollutant .top .pollutant-data .name{
+  @apply text-[12px] md:text-[13px] font-bold md:font-medium
+}
+
+.main-dashboard .major-pollutants .pollutant .top .pollutant-data .value{
+  @apply text-[#31343D] text-[16px] font-bold flex gap-[4px]
+}
+
+.main-dashboard .major-pollutants .pollutant .top .pollutant-data .value .unit{
+  @apply text-[#31343D] text-[12px] md:text-[10px] font-light md:font-medium self-end leading-[100%]
+}
+
+.main-dashboard .major-pollutants .pollutant .top .link:after{
+  content: "";
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M1 8.83008L4.91514 4.91494L1 0.999805" stroke="%2331343D" stroke-width="0.92396" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  @apply block w-[8px] h-[16px]
+}
+
+.main-dashboard .major-pollutants .pollutant .bottom{
+  @apply flex items-center justify-between gap-[20px] text-[9.5px] md:text-[13px] font-medium p-[10px] md:px-[20px] md:py-[10px] bg-[#EFEFFF]
+}
+
+.main-dashboard .major-pollutants .pollutant .bottom .avg-time{
+  @apply flex flex-col justify-center 
+}
+
+.main-dashboard .major-pollutants .pollutant .bottom .avg-time .time{
+  @apply text-[8.5px] md:text-[11px]
+}
+
+.main-dashboard .major-pollutants .pollutant .bottom .avg-time .value{
+  @apply font-extrabold
+}
 
   /* Health Advice */
   div.health-advice .advices .advice{
@@ -252,7 +324,11 @@
   }
 
   section.aqi-scale .scale .desc{
-    @apply text-[11px] text-[#677580] max-md:col-start-1 max-md:col-end-5 max-md:row-start-2 max-md:row-end-3
+    @apply text-[11px] text-[#677580] max-md:col-start-1 max-md:col-end-5 max-md:row-start-2 max-md:row-end-3 max-md:hidden
+  }
+
+  section.aqi-scale .scale.active .desc{
+    @apply block
   }
 
   section.aqi-scale .scale .aqi-model{
@@ -264,7 +340,11 @@
   }
 
   section.aqi-scale .scale .toggler svg{
-    @apply md:hidden float-right
+    @apply md:hidden float-right transition
+  }
+  
+  section.aqi-scale .scale.active .toggler svg{
+    @apply rotate-180
   }
 
   /* World's Most Polluted Cities */
