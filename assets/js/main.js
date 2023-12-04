@@ -3,25 +3,6 @@ document.querySelector("header .mob-menu-toggler").addEventListener("click", () 
     document.querySelector("header .mob").classList.toggle("off-canvas-active")
 })
 
-// UI Togggle Component
-const uiToggles = document.querySelectorAll(".ui-toggle");
-
-uiToggles.forEach(selector => {
-    const toggleHandler = selector.querySelector(".ui-toggle-handler");
-
-    toggleHandler.addEventListener("click", () => {
-        selector.classList.toggle("active");
-    });
-});
-
-document.addEventListener("click", (event) => {
-    uiToggles.forEach(selector => {
-        if (selector.classList.contains("ui-toggle-auto-close") && !selector.contains(event.target)) {
-            selector.classList.remove("active");
-        }
-    });
-});
-
 
 // Main Dashboard Share Function
 document.getElementById('main-dashboard-share-btn').addEventListener('click', function() {

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+       .main {
+    position: relative;
+    border: 2px dotted #000000;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+}
+
+.circle {
+    position: absolute;
+    left: calc(50% - 25px);
+    top: calc(50% - 25px);
+    height: 50px;
+    width: 50px;
+    border: 2px dotted #000000;
+    border-radius: 50%;
+}
+
+.circle:nth-child(1) {
+    transform: translateX(125px);
+}
+
+.circle:nth-child(2) {
+    transform: rotate(72deg) translateX(125px);
+}
+    
+    </style>
+    <div class="main">
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+      
+</body>
+</html>

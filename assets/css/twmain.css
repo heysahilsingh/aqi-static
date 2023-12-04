@@ -96,6 +96,82 @@
     display: flex !important;
   }
 
+  /* ui-aqi-meter */
+  .ui-aqi-meter{
+    @apply relative w-full min-w-[100px] bg-slate-300 aspect-square
+  }
+
+  .ui-aqi-meter .digit{
+    @apply border-[3px] rounded-full text-white border-white flex flex-col items-center justify-center gap-[5px] absolute top-2/4 left-2/4 shadow-[3px_6px_12px_rgba(15,75,12,0.17)] aspect-square w-[70%] -translate-x-2/4 -translate-y-2/4 bg-cover bg-no-repeat bg-center
+  }
+
+  .ui-aqi-meter .digit:after{
+    content: "";
+    @apply aspect-square w-full opacity-80 z-[1] absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 rounded-full
+  }
+
+  .ui-aqi-meter[status="good"] .digit:after {
+    @apply bg-green-50
+  }
+
+  .ui-aqi-meter[status="moderate"] .digit:after {
+    @apply bg-yellow-50
+  }
+
+  .ui-aqi-meter[status="poor"] .digit:after {
+    @apply bg-orange-50
+  }
+
+  .ui-aqi-meter[status="unhealthy"] .digit:after {
+    @apply bg-pink-50
+  }
+
+  .ui-aqi-meter[status="severe"] .digit:after {
+    @apply bg-purple-50
+  }
+
+  .ui-aqi-meter[status="hazardous"] .digit:after {
+    @apply bg-red-50
+  }
+
+  .ui-aqi-meter:is([status="good"], [status="moderate"]) .digit{
+    background-image: url("/assets/media/aqi-meter-bg-good-moderate.jpg");
+  }
+
+  .ui-aqi-meter:is([status="poor"], [status="unhealthy"]) .digit{
+    background-image: url("/assets/media/aqi-meter-bg-poor-unhealthy.jpg");
+  }
+
+  .ui-aqi-meter:is([status="severe"], [status="hazardous"]) .digit{
+    background-image: url("/assets/media/aqi-meter-bg-severe-hazardous.jpg");
+  }
+  
+
+  .ui-aqi-meter .digit .digit-value{
+    @apply font-bold text-[34px] z-[2] leading-[100%]
+  }
+
+  .ui-aqi-meter .digit .digit-metric{
+    @apply text-[10px] font-medium z-[2] leading-[100%]
+  }
+
+  .ui-aqi-meter .meter{
+    @apply relative top-0 left-0 aspect-square w-[100px] h-[100px] rounded-full border-[4px] border-red-50 flex justify-center
+  }
+
+  .ui-aqi-meter .meter .child{
+    /* content: ""; */
+    /* left: calc(50% - 25px);
+    top: calc(50% - 25px);
+    height: 50px;
+    width: 50px;
+    border: 2px dotted #000000;
+    border-radius: 50%; */
+    /* @apply absolute top-[calc(50%-5px)] left-[calc(50%-5px)] w-[10px] h-[10px] aspect-square border-[3px] border-purple-50 bg-white rounded-full */
+
+    @apply w-auto h-[10px] aspect-square bg-white rounded-full
+  }
+
   /* Header */
   header .desk nav li{
     @apply py-[20px] text-[15px] font-medium border-b-[3px] border-transparent cursor-pointer hover:text-zinc-400 transition
@@ -206,6 +282,45 @@
 /* main Dashboard: AQI */
 .main-dashboard .weather .content .wrapper > span{
   @apply flex items-center gap-[10px] font-semibold text-[13px] md:text-[15px] text-[#31343D]
+}
+
+/* Main Dashboard: AQI Scale */
+.main-dashboard .aqi-scale{
+  @apply pt-[10px] md:pt-[15px]
+}
+
+.main-dashboard .aqi-scale::before{
+  content: "";
+  @apply w-0 h-0 block border-x-[5px] border-t-[7px]  md:border-x-[6px] md:border-t-[8px] border-x-transparent absolute top-0 left-[50%] -translate-x-2/4
+}
+
+.main-dashboard .aqi-scale[scale-name="good"]::before{
+  @apply border-t-green-50 left-[calc(16.5%/2)]
+}
+
+.main-dashboard .aqi-scale[scale-name="moderate"]::before{
+  @apply border-t-yellow-50 left-[calc(100%/6*3/2)]
+}
+
+.main-dashboard .aqi-scale[scale-name="poor"]::before{
+  @apply border-t-orange-50 left-[calc(100%/6*5/2)]
+}
+
+.main-dashboard .aqi-scale[scale-name="unhealthy"]::before{
+  @apply border-t-pink-50 left-[calc(100%/6*7/2)]
+}
+
+.main-dashboard .aqi-scale[scale-name="severe"]::before{
+  @apply border-t-purple-50 left-[calc(100%/6*9/2)]
+}
+
+.main-dashboard .aqi-scale[scale-name="hazardous"]::before{
+  @apply border-t-red-50 left-[calc(100%/6*11/2)]
+}
+
+
+.main-dashboard .aqi-scale .scale{
+  @apply flex items-center justify-center border-b-[4px] pb-[2px]
 }
 
 /* Main Dashboard: Major Pollutants */
@@ -348,7 +463,6 @@
   }
 
   /* World's Most Polluted Cities */
-
   section.worlds-most-polluted-cities .content :is(.header, .data){
     @apply grid items-center  gap-[23px] md:gap-x-[40px] grid-cols-[20px_130px_40px_minmax(80px,auto)_minmax(140px,auto)_minmax(40px,auto)] md:grid-cols-[20px_200px_40px_minmax(80px,auto)_minmax(140px,auto)_minmax(40px,auto)] py-[10px] px-[20px] rounded-[6px] font-semibold text-[12px] min-w-[580px]
   }
@@ -394,6 +508,22 @@
     @apply flex items-center justify-center cursor-pointer
   }
 
+  /* Recent Blogs */
+  section.recent-blogs .blog{
+    @apply  bg-white overflow-hidden flex flex-col rounded-[12px] shadow-[1.5px_5px_36px_0px_rgba(0,0,0,0.05)]
+  }
+
+  section.recent-blogs .blog .content{
+@apply md:px-[22px] md:py-[20px] px-[10px] pt-[15px] pb-[20px] flex flex-col gap-[5px] md:gap-[7px]
+  }
+
+  section.recent-blogs .blog .update-date{
+    @apply text-[11px] md:text-[12px] font-semibold md:font-medium
+  }
+
+  section.recent-blogs .blog .title{
+    @apply text-[12px] md:text-[14.5px] font-semibold text-[#31343D] line-clamp-3
+  }
 
   /* Section App Download */
   section.app-download .platform{
@@ -473,3 +603,5 @@ footer .bottom .social-handles hr{
 
 
 }
+
+
