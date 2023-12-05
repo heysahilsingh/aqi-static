@@ -1731,11 +1731,12 @@ section.recent-blogs .blog .title {
 
 /* Section App Download */
 
-section.app-download .platform {
+section.app-download :is(.app, .api) {
   position: relative;
   display: flex;
   width: 84px;
   flex-grow: 1;
+  cursor: pointer;
   flex-direction: column;
   justify-content: center;
   border-radius: 4px;
@@ -1745,41 +1746,46 @@ section.app-download .platform {
   text-align: left;
   --tw-text-opacity: 1;
   color: rgb(102 117 128 / var(--tw-text-opacity));
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 @media not all and (min-width: 768px) {
-  section.app-download .platform {
+  section.app-download :is(.app, .api) {
     height: 75px;
   }
 }
 
 @media (min-width: 768px) {
-  section.app-download .platform {
+  section.app-download :is(.app, .api) {
     width: 260px;
     border-radius: 5.5px;
     padding: 21px;
   }
 }
 
-section.app-download .platform.selected {
+section.app-download .app.selected {
   --tw-bg-opacity: 1;
   background-color: rgb(85 166 240 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-section.app-download .platform .for {
+section.app-download :is(.app, .api) .for {
   font-size: 9px;
   font-weight: 600;
 }
 
 @media (min-width: 768px) {
-  section.app-download .platform .for {
+  section.app-download :is(.app, .api) .for {
     font-size: 12px;
   }
 }
 
-section.app-download .platform .name {
+section.app-download :is(.app, .api) .name {
   font-size: 11px;
   font-weight: 700;
   --tw-text-opacity: 1;
@@ -1787,35 +1793,35 @@ section.app-download .platform .name {
 }
 
 @media (min-width: 768px) {
-  section.app-download .platform .name {
+  section.app-download :is(.app, .api) .name {
     margin-top: 2px;
     margin-bottom: 25px;
     font-size: 16px;
   }
 }
 
-section.app-download .platform.selected .name {
+section.app-download :is(.app, .api).selected .name {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-section.app-download .platform .desc {
+section.app-download :is(.app, .api) .desc {
   font-weight: 500;
 }
 
 @media not all and (min-width: 768px) {
-  section.app-download .platform .desc {
+  section.app-download :is(.app, .api) .desc {
     display: none;
   }
 }
 
 @media (min-width: 768px) {
-  section.app-download .platform .desc {
+  section.app-download :is(.app, .api) .desc {
     font-size: 13px;
   }
 }
 
-section.app-download .platform .icon {
+section.app-download :is(.app, .api) .icon {
   position: absolute;
   top: 0px;
   right: 0px;
@@ -1832,42 +1838,42 @@ section.app-download .platform .icon {
 }
 
 @media (min-width: 768px) {
-  section.app-download .platform .icon {
+  section.app-download :is(.app, .api) .icon {
     margin: 21px;
     width: 26.5px;
   }
 }
 
-section.app-download .platform.selected .icon {
+section.app-download :is(.app, .api).selected .icon {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 @media not all and (min-width: 768px) {
-  section.app-download .platform .icon svg {
+  section.app-download :is(.app, .api) .icon svg {
     width: 5px;
   }
 }
 
-section.app-download .platform .icon svg path {
+section.app-download :is(.app, .api) .icon svg path {
   stroke: #ffffff;
   padding-left: 1px;
   padding-right: 2px;
 }
 
 @media (min-width: 768px) {
-  section.app-download .platform .icon svg path {
+  section.app-download :is(.app, .api) .icon svg path {
     padding-right: 4px;
   }
 }
 
 @media (min-width: 1024px) {
-  section.app-download .platform .icon svg path {
+  section.app-download :is(.app, .api) .icon svg path {
     padding-left: 7px;
   }
 }
 
-section.app-download .platform.selected .icon svg path {
+section.app-download :is(.app, .api).selected .icon svg path {
   stroke: #55A6F0;
 }
 
@@ -2931,11 +2937,6 @@ footer .bottom .social-handles hr {
   padding-right: 50px;
 }
 
-.py-20 {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-
 .py-\[10px\] {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -3356,6 +3357,11 @@ footer .bottom .social-handles hr {
     height: -moz-fit-content;
     height: fit-content;
   }
+
+  .max-sm\:px-\[20px\] {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 @media (max-width: 550px) {
@@ -3383,6 +3389,10 @@ footer .bottom .social-handles hr {
 
   .sm\:hidden {
     display: none;
+  }
+
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .sm\:grid-cols-\[1fr_minmax\(auto\2c 270px\)\] {

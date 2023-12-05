@@ -30,8 +30,8 @@
   <link href="./assets/css/main.css" rel="stylesheet" />
 
   <!-- Owl Carousel's CSS  -->
-  <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+  <!-- <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css"> -->
+<!-- <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css"> -->
 </head>
 
 <body class="bg-[#F6F6FA] font-nunito h-screen w-full">
@@ -1159,9 +1159,9 @@
     <!-- App Download  -->
   <section class="app-download bg-white">
     <div class="wrapper ui-container ui-padding">
-      <div class="platforms]">
+      <div class="apps">
         <div class="wrapper flex gap-[10px] items-center ui-section-shadow lg:rounded-[5.5px] rounded-[4px] bg-white">
-          <a href="#" class="platform selected">
+          <div id="mob-app" class="app selected">
             <div class="for">Air Quality</div>
             <div class="name">Mobile App</div>
             <div class="desc">
@@ -1173,8 +1173,8 @@
                   stroke-linecap="round" />
               </svg>
             </i>
-          </a>
-          <a href="#" class="platform">
+          </div>
+          <div id="tv-app" class="app">
             <div class="for">Air Quality</div>
             <div class="name">Tv App</div>
             <div class="desc">
@@ -1186,9 +1186,9 @@
                   stroke-linecap="round" />
               </svg>
             </i>
-          </a>
+          </div>
           <hr class="vr h-[42px] lg:h-[100px]" />
-          <a href="#" class="platform">
+          <div id="web-app" class="app">
             <div class="for">Air Quality</div>
             <div class="name">Web Dashboard</div>
             <div class="desc">
@@ -1200,9 +1200,9 @@
                   stroke-linecap="round" />
               </svg>
             </i>
-          </a>
+          </div>
           <hr class="vr h-[42px] lg:h-[100px]" />
-          <a href="#" class="platform">
+          <a id="api" class="api">
             <div class="for">Air Quality</div>
             <div class="name">API Integration</div>
             <div class="desc">
@@ -1217,47 +1217,47 @@
           </a>
         </div>
       </div>
-      <div class="mobile-app w-full py-[30px] lg:py-[72px]">
+      <div class="app-details w-full py-[30px] lg:py-[72px]">
         <div class="wrapper grid grid-cols-1 lg:grid-cols-[1fr, 440px]">
-          <div class="heading">
+          <div id="app-heading" class="app-heading heading">
             <div class="flex items-center lg:gap-[50px] gap-[10px]">
               <div class="flex flex-col lg:gap-[6px] min-w-fit">
                 <span class="lg:text-[16px] text-[13px] font-semibold">Air
                   Quality</span>
-                <h5 class="lg:text-[24px] text-[16px] font-bold text-[#31343D]">
+                <h5 id="app-name" class="app-name lg:text-[24px] text-[16px] font-bold text-[#31343D]">
                   Mobile App
                 </h5>
               </div>
               <hr class="vr !w-[1.5px] h-[42px] lg:h-[60px]" />
-              <p class="text-[12px] md:text-[16px] text-[#677580] max-w-[420px]">
+              <p id="app-desc" class="app-desc text-[12px] md:text-[16px] text-[#677580] max-w-[420px]">
                 Free AQI Mobile App For Your IOS, Android, And Smart TV
                 Devices.
               </p>
             </div>
           </div>
-          <div class="feature-download flex flex-col-reverse gap-[24px] lg:flex-col lg:gap-[37px] lg:items-end">
+          <div id="app-feature-download" class="app-feature-download flex flex-col-reverse gap-[24px] lg:flex-col lg:gap-[37px] lg:items-end">
             <div
-              class="feature ml-[-10px] lg:ml-[-15] grid grid-cols-2 lg:gap-x-[40px] lg:gap-y-[20px] text-[#4B565F] text-[12px] lg:text-[16px] font-medium">
-              <div class="feature flex items-center gap-[10px] lg:gap-[13px]">
-                <img src="./assets/media/icons/mobile-app-feature-real-time-data.svg"
+              id="app-features" class="app-features ml-[-10px] lg:ml-[-15] grid max-sm:px-[20px] sm:grid-cols-2 lg:gap-x-[40px] lg:gap-y-[20px] text-[#4B565F] text-[12px] lg:text-[16px] font-medium">
+              <div id="app-feature-1" class="feature flex items-center gap-[10px] lg:gap-[13px]">
+                <img src="./assets/media/app-download/mobile-app-feature-1.svg"
                   alt="App feature - Real Time Data" />
                 <p>Real-time air quality API for accurate global data</p>
               </div>
-              <div class="feature flex items-center gap-[10px] lg:gap-[13px]">
-                <img src="./assets/media/icons/mobile-app-feature-world-map.svg" alt="App feature - World Map" />
+              <div id="app-feature-2" class="feature flex items-center gap-[10px] lg:gap-[13px]">
+                <img src="./assets/media/app-download/mobile-app-feature-2.svg" alt="App feature - World Map" />
                 <p>World air pollution map and weather map</p>
               </div>
-              <div class="feature flex items-center gap-[10px] lg:gap-[13px]">
-                <img src="./assets/media/icons/mobile-app-feature-monitoring-dashboard.svg"
+              <div id="app-feature-3" class="feature flex items-center gap-[10px] lg:gap-[13px]">
+                <img src="./assets/media/app-download/mobile-app-feature-3.svg"
                   alt="App feature - Monitoring Dashboard" />
                 <p>Insightful Air quality monitoring dashboard</p>
               </div>
-              <div class="feature flex items-center gap-[10px] lg:gap-[13px]">
-                <img src="./assets/media/icons/mobile-app-feature-map.svg" alt="App feature - Map" />
+              <div id="app-feature-4" class="feature flex items-center gap-[10px] lg:gap-[13px]">
+                <img src="./assets/media/app-download/mobile-app-feature-4.svg" alt="App feature - Map" />
                 <p>World air pollution map and weather map</p>
               </div>
             </div>
-            <div class="download-btn flex flex-wrap justify-center gap-[15px] lg:gap-[17px]">
+            <div id="app-download" class="download-btn flex flex-wrap justify-center gap-[15px] lg:gap-[17px]">
               <a href="#" class="max-[550px]:w-full">
                 <button
                   class="flex flex-wrap w-full min-w-[225px] justify-center items-center gap-[8px] lg:gap-[11px] border border-blue bg-blue text-white text-[12px] p-[11px] rounded-[4.5px] md:rouded-[6px]">
@@ -1276,11 +1276,8 @@
               </a>
             </div>
           </div>
-          <div class="app-screenshot row-start-2 row-end-3 lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-3">
-            <picture class="flex items-center justify-center">
-              <source media="(min-width:769px)" srcset="./assets/media/mobile-app-desk.png" />
-              <img src="./assets/media/mobile-app-mob.png" alt="Mobile application" />
-            </picture>
+          <div id="app-img" class="app-img app-screenshot row-start-2 row-end-3 lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-3">
+              <img class="flex items-center justify-center" src="./assets/media/app-download/mobile-app.png" alt="Mobile application" />
           </div>
         </div>
       </div>

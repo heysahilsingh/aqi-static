@@ -526,47 +526,47 @@
   }
 
   /* Section App Download */
-  section.app-download .platform{
-    @apply relative max-md:h-[75px] md:p-[21px] p-[5px] flex flex-col text-left justify-center md:rounded-[5.5px] rounded-[4px] grow text-[#667580] w-[84px] md:w-[260px] bg-white
+  section.app-download :is(.app, .api){
+    @apply relative max-md:h-[75px] md:p-[21px] p-[5px] flex flex-col text-left justify-center md:rounded-[5.5px] rounded-[4px] grow text-[#667580] w-[84px] md:w-[260px] bg-white cursor-pointer transition
   }
 
-  section.app-download .platform.selected{
+  section.app-download .app.selected{
     @apply text-white bg-[#55A6F0]
   }
 
-  section.app-download .platform .for{
+  section.app-download :is(.app, .api) .for{
     @apply md:text-[12px] text-[9px] font-semibold
   }
 
-  section.app-download .platform .name{
+  section.app-download :is(.app, .api) .name{
     @apply md:text-[16px] text-[11px] md:mt-[2px] md:mb-[25px] font-bold text-[#31343D]
   }
 
-  section.app-download .platform.selected .name{
+  section.app-download :is(.app, .api).selected .name{
     @apply text-white
   }
 
-  section.app-download .platform .desc{
+  section.app-download :is(.app, .api) .desc{
     @apply md:text-[13px] max-md:hidden font-medium
   }
 
-  section.app-download .platform .icon{
+  section.app-download :is(.app, .api) .icon{
     @apply absolute top-0 right-0 m-[5px] md:m-[21px] w-[10.5px] md:w-[26.5px] rounded-full bg-[#4BA9FF] flex items-center justify-center overflow-hidden aspect-square
   }
 
-  section.app-download .platform.selected .icon{
+  section.app-download :is(.app, .api).selected .icon{
     @apply bg-white
   }
 
-  section.app-download .platform .icon svg{
+  section.app-download :is(.app, .api) .icon svg{
     @apply max-md:w-[5px]
   }
 
-  section.app-download .platform .icon svg path {
+  section.app-download :is(.app, .api) .icon svg path {
     @apply stroke-white md:pr-[4px] lg:pl-[7px] pl-[1px] pr-[2px]
   }
 
-  section.app-download .platform.selected .icon svg path {
+  section.app-download :is(.app, .api).selected .icon svg path {
     @apply stroke-[#55A6F0]
   }
 
